@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How tall are they?</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+
+        rel="stylesheet">
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+
+         <style>
+        body {
+            margin: 0;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-rendering: optimizeLegibility;
+            background-color: #FFF5E1;
+        }
+
+        .content {
+            max-width: 640px;
+            margin: auto;
+        }
+
+        .header {
+            padding: 3em 0;
+        }
+
+        a {
+            color: #f05349;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 4em;
+            padding: 4em 0;
+        }
+
+        figure {
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        figcaption {
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #666;
+        }
+
+        h1 {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: bold;
+            font-size: 3em;
+            line-height: 1.1;
+        }
+
+        .subhead {
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        iframe,
+        img,
+        video {
+            max-width: 100%;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        .full-width figure {
+            text-align: center;
+        }
+
+        ul {
+            margin: 0;
+            padding-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        iframe {
+            padding-bottom: 1.2em;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            background: #fff880;
+        }
+
+        /* margin on mobile */
+        @media (max-width: 640px) {
+            body {
+                font-size: 18px;
+            }
+
+            .content {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+        }
+
+        .full {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+
+
+    </style>
+     <style>
+        .with-image-bg,
+        .with-video-bg {
+            position: relative;
+            background-size: cover;
+            margin-bottom: 2em;
+
+            /* Center everything inside */
+            min-height: 70svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* White text with a shadow */
+            color: white;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .with-image-bg {
+            background-image: url('headline.jpg');
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .video-background video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <link href="scrolly-styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+</head>
+
+<body>
+
+
+        <div class="header with-image-bg">
+            <div class="content">
+            <h1>How Tall Are The Characters in Animations?</h1>
+            <p class="subhead">Anime characters can be very surreal. This story looks at the height of animation characters in real life and whether it correlates with their popularity.</p>
+        </div>
+    </div>
+
+    <div class="content">
+            <div class="byline">
+                <p>By <a href="https://github.com/yiren54610">Yiren Lu</a></p>
+            </div>
+        <p>Gender representation in animation, movies, and TV shows has long been a central concern among critics of popular culture. This story takes a data-driven approach to the conversation by analyzing the most beloved characters on MyAnimeList. Using web scraping, we collected detailed information on every character who received over 1,000 votes, offering a closer look at who fans favor—and what that might reveal about gender dynamics in anime fandom..</p>
+        <p>The dataset includes:</p>
+        <ul>
+            <li>Name of the character</li>
+            <li>Age</li>
+            <li>Occupation</li>
+            <li>Height</li>
+            <li>etc</li>
+        </ul>
+        <p>First, we'll look at height.</p>
+    </div>
+    <div class="full">
+    <section id="scrolly-ai2html" class="scrolly-container">
+        <div class="sticky-thing">
+
+            <!-- ai2html goes below this line-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Generated by ai2html v0.102.0 - 2025-05-04 12:58 -->
+<!-- ai file: beeswarm.ai -->
+<style media="screen,print">
+	#g-beeswarm-box ,
+	#g-beeswarm-box .g-artboard {
+		margin:0 auto;
+	}
+	#g-beeswarm-box p {
+		margin:0;
+	}
+	#g-beeswarm-box .g-aiAbs {
+		position:absolute;
+	}
+	#g-beeswarm-box .g-aiImg {
+		position:absolute;
+		top:0;
+		display:block;
+		width:100% !important;
+	}
+	#g-beeswarm-box .g-aiSymbol {
+		position: absolute;
+		box-sizing: border-box;
+	}
+	#g-beeswarm-box .g-aiPointText p { white-space: nowrap; }
+	#g-beeswarm-medium {
+		position:relative;
+		overflow:hidden;
+	}
+	#g-beeswarm-medium p {
+		font-weight:500;
+		line-height:8px;
+		height:auto;
+		filter:alpha(opacity=100);
+		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity:1;
+		letter-spacing:0em;
+		font-size:6px;
+		text-align:left;
+		color:rgb(0,0,0);
+		text-transform:none;
+		padding-bottom:0;
+		padding-top:0;
+		mix-blend-mode:normal;
+		font-style:normal;
+		position:static;
+	}
+	#g-beeswarm-medium .g-pstyle0 {
+		height:8px;
+	}
+	#g-beeswarm-medium .g-pstyle1 {
+		font-weight:700;
+		line-height:9px;
+		font-size:8px;
+	}
+	#g-beeswarm-medium .g-pstyle2 {
+		line-height:9px;
+		font-size:8px;
+	}
+	#g-beeswarm-medium .g-pstyle3 {
+		line-height:9px;
+		height:9px;
+		font-size:8px;
+		color:rgb(123,123,123);
+	}
+	#g-beeswarm-medium .g-cstyle0 {
+		font-weight:500;
+	}
+	#g-beeswarm-medium .g-cstyle1 {
+		font-weight:700;
+		color:rgb(244,8,8);
+	}
+	#g-beeswarm-laptop {
+		position:relative;
+		overflow:hidden;
+	}
+	#g-beeswarm-laptop p {
+		font-weight:500;
+		line-height:7px;
+		height:auto;
+		filter:alpha(opacity=100);
+		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity:1;
+		letter-spacing:0em;
+		font-size:6px;
+		text-align:left;
+		color:rgb(0,0,0);
+		text-transform:none;
+		padding-bottom:0;
+		padding-top:0;
+		mix-blend-mode:normal;
+		font-style:normal;
+		position:static;
+	}
+	#g-beeswarm-laptop .g-pstyle0 {
+		height:7px;
+	}
+	#g-beeswarm-laptop .g-pstyle1 {
+		font-weight:700;
+		line-height:8px;
+		font-size:7px;
+	}
+	#g-beeswarm-laptop .g-pstyle2 {
+		line-height:8px;
+		font-size:7px;
+	}
+	#g-beeswarm-laptop .g-pstyle3 {
+		line-height:8px;
+		height:8px;
+		font-size:7px;
+		color:rgb(123,123,123);
+	}
+	#g-beeswarm-laptop .g-cstyle0 {
+		font-weight:500;
+	}
+	#g-beeswarm-laptop .g-cstyle1 {
+		font-weight:700;
+		color:rgb(244,8,8);
+	}
+	#g-beeswarm-mobile {
+		position:relative;
+		overflow:hidden;
+	}
+	#g-beeswarm-mobile p {
+		font-weight:500;
+		line-height:8px;
+		filter:alpha(opacity=100);
+		-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity:1;
+		letter-spacing:0em;
+		font-size:6px;
+		text-align:left;
+		color:rgb(0,0,0);
+		text-transform:none;
+		padding-bottom:0;
+		padding-top:0;
+		mix-blend-mode:normal;
+		font-style:normal;
+		height:auto;
+		position:static;
+	}
+	#g-beeswarm-mobile .g-pstyle0 {
+		line-height:6px;
+		height:6px;
+		font-size:5px;
+		text-align:center;
+	}
+	#g-beeswarm-mobile .g-pstyle1 {
+		height:8px;
+		text-align:center;
+		color:rgb(123,123,123);
+	}
+	#g-beeswarm-mobile .g-pstyle2 {
+		font-weight:700;
+	}
+	#g-beeswarm-mobile .g-cstyle0 {
+		font-weight:500;
+	}
+	#g-beeswarm-mobile .g-cstyle1 {
+		font-weight:700;
+		color:rgb(244,8,8);
+	}
+
+</style>
+
+<div id="g-beeswarm-box" class="ai2html">
+
+	<!-- Artboard: medium -->
+	<div id="g-beeswarm-medium" class="g-artboard" style="width:620px; height:425px;" data-aspect-ratio="1.459" data-min-width="620">
+<div style=""></div>
+		<img id="g-beeswarm-medium-img" class="g-aiImg" alt="" src="beeswarm-medium.jpg"/>
+		<div id="g-ai0-1" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:26.3369%;margin-top:-4.9px;left:7.7977%;width:36px;">
+			<p class="g-pstyle0">male</p>
+		</div>
+		<div id="g-ai0-2" class="g-ai2html-settings g-aiAbs" style="top:31.7647%;left:66.0417%;width:20.6452%;">
+			<p class="g-pstyle1"><span class="g-cstyle0">This is </span>Katakuri Charlotte<span class="g-cstyle0">. </span></p>
+			<p>&nbsp;</p>
+			<p class="g-pstyle2">He has 509 cm, but he got <span class="g-cstyle1">6,785 </span>votes.</p>
+		</div>
+		<div id="g-ai0-3" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:67.278%;margin-top:-4.9px;left:6.93%;width:42px;">
+			<p class="g-pstyle0">female</p>
+		</div>
+		<div id="g-ai0-4" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:86.4042%;margin-top:-5.2px;left:77.3237%;width:59px;">
+			<p class="g-pstyle3">Height/cm</p>
+		</div>
+		<div id="g-ai0-5" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:10.0753%;width:26px;">
+			<p class="g-pstyle0">0</p>
+		</div>
+		<div id="g-ai0-6" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:16.4533%;width:29px;">
+			<p class="g-pstyle0">50</p>
+		</div>
+		<div id="g-ai0-7" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:22.8315%;width:32px;">
+			<p class="g-pstyle0">100</p>
+		</div>
+		<div id="g-ai0-8" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:29.4988%;width:32px;">
+			<p class="g-pstyle0">150</p>
+		</div>
+		<div id="g-ai0-9" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:36.1662%;width:33px;">
+			<p class="g-pstyle0">200</p>
+		</div>
+		<div id="g-ai0-10" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:42.8336%;width:32px;">
+			<p class="g-pstyle0">250</p>
+		</div>
+		<div id="g-ai0-11" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:49.501%;width:33px;">
+			<p class="g-pstyle0">300</p>
+		</div>
+		<div id="g-ai0-12" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:56.1683%;width:32px;">
+			<p class="g-pstyle0">350</p>
+		</div>
+		<div id="g-ai0-13" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:62.8357%;width:34px;">
+			<p class="g-pstyle0">400</p>
+		</div>
+		<div id="g-ai0-14" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:69.5031%;width:33px;">
+			<p class="g-pstyle0">450</p>
+		</div>
+		<div id="g-ai0-15" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:76.1705%;width:33px;">
+			<p class="g-pstyle0">500</p>
+		</div>
+		<div id="g-ai0-16" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:89.631%;margin-top:-4.9px;left:82.8379%;width:32px;">
+			<p class="g-pstyle0">550</p>
+		</div>
+	</div>
+
+	<!-- Artboard: laptop -->
+	<div id="g-beeswarm-laptop" class="g-artboard" style="width:490px; height:350px;" data-aspect-ratio="1.4" data-min-width="490" data-max-width="619">
+<div style=""></div>
+		<img id="g-beeswarm-laptop-img" class="g-aiImg" alt="" src="beeswarm-laptop.jpg"/>
+		<div id="g-ai1-1" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:25.4453%;margin-top:-4.1px;left:3.4897%;width:35px;">
+			<p class="g-pstyle0">male</p>
+		</div>
+		<div id="g-ai1-2" class="g-ai2html-settings g-aiAbs" style="top:31.7143%;left:70.1973%;width:23.6735%;">
+			<p class="g-pstyle1"><span class="g-cstyle0">This is </span>Katakuri Charlotte<span class="g-cstyle0">. </span></p>
+			<p>&nbsp;</p>
+			<p class="g-pstyle2">He has 509 cm, but he got <span class="g-cstyle1">6,785 </span>votes.</p>
+		</div>
+		<div id="g-ai1-3" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:70.5882%;margin-top:-4.1px;left:2.4958%;width:40px;">
+			<p class="g-pstyle0">female</p>
+		</div>
+		<div id="g-ai1-4" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:91.6487%;margin-top:-4.8px;left:83.119%;width:55px;">
+			<p class="g-pstyle3">Height/cm</p>
+		</div>
+		<div id="g-ai1-5" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:6.0981%;width:26px;">
+			<p class="g-pstyle0">0</p>
+		</div>
+		<div id="g-ai1-6" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:13.403%;width:28px;">
+			<p class="g-pstyle0">50</p>
+		</div>
+		<div id="g-ai1-7" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:20.7079%;width:31px;">
+			<p class="g-pstyle0">100</p>
+		</div>
+		<div id="g-ai1-8" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:28.3442%;width:31px;">
+			<p class="g-pstyle0">150</p>
+		</div>
+		<div id="g-ai1-9" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:35.9803%;width:32px;">
+			<p class="g-pstyle0">200</p>
+		</div>
+		<div id="g-ai1-10" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:43.6167%;width:31px;">
+			<p class="g-pstyle0">250</p>
+		</div>
+		<div id="g-ai1-11" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:51.253%;width:32px;">
+			<p class="g-pstyle0">300</p>
+		</div>
+		<div id="g-ai1-12" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:58.8891%;width:31px;">
+			<p class="g-pstyle0">350</p>
+		</div>
+		<div id="g-ai1-13" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:66.5254%;width:33px;">
+			<p class="g-pstyle0">400</p>
+		</div>
+		<div id="g-ai1-14" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:74.1618%;width:32px;">
+			<p class="g-pstyle0">450</p>
+		</div>
+		<div id="g-ai1-15" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:81.7979%;width:32px;">
+			<p class="g-pstyle0">500</p>
+		</div>
+		<div id="g-ai1-16" class="g-ai2html-settings g-aiAbs g-aiPointText" style="top:95.1596%;margin-top:-4.1px;left:89.4342%;width:31px;">
+			<p class="g-pstyle0">550</p>
+		</div>
+	</div>
+
+	<!-- Artboard: mobile -->
+	<div id="g-beeswarm-mobile" class="g-artboard" style="max-width: 375px;max-height: 471px" data-aspect-ratio="0.797" data-min-width="0" data-max-width="489">
+<div style="padding: 0 0 125.5467% 0;"></div>
+		<img id="g-beeswarm-mobile-img" class="g-aiImg" alt="" src="beeswarm-mobile.jpg"/>
+		<div id="g-ai2-1" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:5.4785%;margin-top:-3.8px;left:87.5875%;margin-left:-15.5px;width:31px;">
+			<p class="g-pstyle0">550</p>
+		</div>
+		<div id="g-ai2-2" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);transform-origin: 50% 60.0976235085297%;-webkit-transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);-webkit-transform-origin: 50% 60.0976235085297%;-ms-transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);-ms-transform-origin: 50% 60.0976235085297%;top:6.9991%;margin-top:-5px;left:80.4648%;margin-left:-26.5px;width:53px;">
+			<p class="g-pstyle1">Height/cm</p>
+		</div>
+		<div id="g-ai2-3" class="g-ai2html-settings g-aiAbs" style="top:10.4078%;left:30.8012%;width:28.5333%;">
+			<p class="g-pstyle2"><span class="g-cstyle0">This is </span>Katakuri Charlotte<span class="g-cstyle0">. </span></p>
+			<p>&nbsp;</p>
+			<p>He has 509 cm, but he got <span class="g-cstyle1">6,785 </span>votes.</p>
+		</div>
+		<div id="g-ai2-4" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:12.7003%;margin-top:-3.8px;left:87.4849%;margin-left:-15.5px;width:31px;">
+			<p class="g-pstyle0">500</p>
+		</div>
+		<div id="g-ai2-5" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:20.1344%;margin-top:-3.8px;left:87.5089%;margin-left:-15.5px;width:31px;">
+			<p class="g-pstyle0">450</p>
+		</div>
+		<div id="g-ai2-6" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:27.3562%;margin-top:-3.8px;left:87.5396%;margin-left:-16px;width:32px;">
+			<p class="g-pstyle0">400</p>
+		</div>
+		<div id="g-ai2-7" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:35.0028%;margin-top:-3.8px;left:87.4667%;margin-left:-15px;width:30px;">
+			<p class="g-pstyle0">350</p>
+		</div>
+		<div id="g-ai2-8" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:42.2245%;margin-top:-3.8px;left:87.4974%;margin-left:-15.5px;width:31px;">
+			<p class="g-pstyle0">300</p>
+		</div>
+		<div id="g-ai2-9" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:49.6587%;margin-top:-3.8px;left:87.563%;margin-left:-15.5px;width:31px;">
+			<p class="g-pstyle0">250</p>
+		</div>
+		<div id="g-ai2-10" class="g-ai2html-settings g-aiAbs" style="top:50.5523%;left:49.2513%;width:14.4%;">
+			<p>Not too much outliers for female characters.</p>
+		</div>
+		<div id="g-ai2-11" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:56.8804%;margin-top:-3.8px;left:87.4604%;margin-left:-15.5px;width:31px;">
+			<p class="g-pstyle0">200</p>
+		</div>
+		<div id="g-ai2-12" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:64.3146%;margin-top:-3.8px;left:87.5245%;margin-left:-15px;width:30px;">
+			<p class="g-pstyle0">150</p>
+		</div>
+		<div id="g-ai2-13" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:71.7487%;margin-top:-3.8px;left:87.5552%;margin-left:-15.5px;width:31px;">
+			<p class="g-pstyle0">100</p>
+		</div>
+		<div id="g-ai2-14" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:78.9705%;margin-top:-3.8px;left:87.5323%;margin-left:-14px;width:28px;">
+			<p class="g-pstyle0">50</p>
+		</div>
+		<div id="g-ai2-15" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0,-1,1,0,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0,-1,1,0,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0,-1,1,0,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:86.4046%;margin-top:-3.8px;left:87.4766%;margin-left:-12.5px;width:25px;">
+			<p class="g-pstyle0">0</p>
+		</div>
+		<div id="g-ai2-16" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:87.8915%;margin-top:-3.8px;left:66.5125%;margin-left:-19px;width:38px;">
+			<p class="g-pstyle0">female</p>
+		</div>
+		<div id="g-ai2-17" class="g-ai2html-settings g-aiAbs g-aiPointText" style="transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);transform-origin: 50% 63.1822863027806%;-webkit-transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);-webkit-transform-origin: 50% 63.1822863027806%;-ms-transform: matrix(0.9994,-0.0349,0.0349,0.9994,0,0);-ms-transform-origin: 50% 63.1822863027806%;top:87.8915%;margin-top:-3.8px;left:27.218%;margin-left:-17px;width:34px;">
+			<p class="g-pstyle0">male</p>
+		</div>
+	</div>
+
+</div>
+<!-- End ai2html - 2025-05-04 12:58 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- ai2html goes above this line -->
+
+        </div>
+        <div class="steps-container">
+            <div class="step" id="step-one">
+                <div>
+                    <p>For all characters who got more than one thousand votes, male characters are more than twice of number of female characters.</p>
+                    <p>For male characters, the average height is 171 cm, while for females, it's 161 cm.</p>
+                </div>
+            </div>
+            <div class="step" id="step-two">
+                <p>Interestingly, male characters tend to have a greater variance of height.
+                    <br>
+                    By contrast, female characters are closer to real human heights.</p>
+                
+            </div>
+            <div class="step" id="step-three">
+                <p>For example, Charlotte Katakuri is the highest character in the series, with a height more than 5 meters, but his votes are only 6000 compared to Lelouche. .</p>
+    
+            </div>
+        </div>
+    </section>
+    <div class="content">
+        <p></p>
+    </div>
+    <div class="full">
+            <iframe title="The Taller The Better? Or Vice Versa?" aria-label="Scatter Plot" id="datawrapper-chart-bGNxa" src="https://datawrapper.dwcdn.net/bGNxa/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="443" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+            </script>
+    </div>
+    <div class="content">
+        <p>Interestingly, male characters displayed a greater range of height distributions while the range for female characters tended to be narrower. 
+        </p>
+    </div>
+    <div class="footer">
+        <div class="content">
+            <p>You can find the code for this <a href="https://github.com/yiren54610?tab=repositories">here</a>.
+            </p>
+        </div>
+    </div>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+
+        function hideNote() {
+            // annotation: #path-1, #text-1, #path-2, #text-2
+            d3.select("#path-1").classed('hidden', true)
+            d3.select("#text-1").classed('hidden', true)
+            d3.select("#path-2").classed('hidden', true)
+            d3.select("#text-2").classed('hidden', true)
+        }
+
+        /* Scrollytelling code goes under here */
+        hideNote()
+
+        d3.select("#step-one").on('stepout', function (e) {
+            if (e.detail.direction === 'up') {
+                // undo the changes from step one
+                hideNote()
+            }
+        })
+
+        d3.select("#step-one").on('stepin', function (e) {
+            console.log("Got to step one")
+            // undo changes from step two
+            d3.selectAll("[data-name='africa'] path").style('stroke', 'none')
+
+            // do changes for step one
+            d3.select("#path-1").classed('hidden', false)
+            d3.select("#text-1").classed('hidden', false)
+            d3.select("#path-2").classed('hidden', false)
+            d3.select("#text-2").classed('hidden', false)
+        })
+
+        d3.select("#step-two").on('stepin', function (e) {
+
+            // undo changes from step one
+            hideNote()
+
+            // do changes for step two
+            console.log("Got to step two")
+            d3.selectAll("[data-name='africa'] path").style('stroke', 'black')
+        })
+
+        d3.select("#step-three").on('stepin', function (e) {
+            // undo changes from step two
+            d3.selectAll("[data-name='africa'] path").style('stroke', 'none')
+        })
+
+
+    </script>
+
+
+
+    <script>
+        /*************
+        
+        This is the JavaScript that makes the scrolly work 
+        
+        *************/
+
+        /* 
+        This part attaches a scroll to the element with id="scrolly-ai2html"    
+        */
+        (() => {
+            const scroller = scrollama()
+
+            scroller
+                .setup({
+                    parent: document.querySelector("#scrolly-ai2html"),
+                    step: ".step",
+                    offset: 0.6,
+                    debug: false,
+                })
+                .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                    element.dispatchEvent(event)
+                })
+                .onStepExit(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepout", { detail: { direction: direction } })
+                    if (direction === "up" && element.previousElementSibling) {
+                        const event = new CustomEvent("stepin", { detail: { direction: direction } })
+                        element.previousElementSibling.dispatchEvent(event)
+                    }
+                })
+
+            window.addEventListener("resize", scroller.resize)
+        })()
+
+    </script>
+    <style>
+        /* Change this to adjust the padding between steps */
+        .step {
+            margin-bottom: 70vh;
+        }
+    </style>
+
+    <script type="text/javascript">
+            (function () {
+                // only want one resizer on the page
+                if (document.documentElement.className.indexOf("g-resizer-v3-init") > -1) return;
+                document.documentElement.className += " g-resizer-v3-init";
+                // require IE9+
+                if (!("querySelector" in document)) return;
+                function resizer() {
+                    var elements = Array.prototype.slice.call(document.querySelectorAll(".g-artboard[data-min-width]")),
+                        widthById = {};
+                    elements.forEach(function (el) {
+                        var parent = el.parentNode,
+                            width = widthById[parent.id] || parent.getBoundingClientRect().width,
+                            minwidth = el.getAttribute("data-min-width"),
+                            maxwidth = el.getAttribute("data-max-width");
+                        widthById[parent.id] = width;
+
+                        if (+minwidth <= width && (+maxwidth >= width || maxwidth === null)) {
+                            el.style.display = "block";
+                        } else {
+                            el.style.display = "none";
+                        }
+                    });
+                    try {
+                        if (window.parent && window.parent.$) {
+                            window.parent.$("body").trigger("resizedcontent", [window]);
+                        }
+                        if (window.require) {
+                            require(['foundation/main'], function () {
+                                require(['shared/interactive/instances/app-communicator'], function (AppCommunicator) {
+                                    AppCommunicator.triggerResize();
+                                });
+                            });
+                        }
+                    } catch (e) { console.log(e); }
+                }
+
+                document.addEventListener('DOMContentLoaded', resizer);
+                // feel free to replace throttle with _.throttle, if available
+                window.addEventListener('resize', throttle(resizer, 200));
+
+                function throttle(func, wait) {
+                    // from underscore.js
+                    var _now = Date.now || function () { return new Date().getTime(); },
+                        context, args, result, timeout = null, previous = 0;
+                    var later = function () {
+                        previous = _now();
+                        timeout = null;
+                        result = func.apply(context, args);
+                        if (!timeout) context = args = null;
+                    };
+                    return function () {
+                        var now = _now(), remaining = wait - (now - previous);
+                        context = this;
+                        args = arguments;
+                        if (remaining <= 0 || remaining > wait) {
+                            if (timeout) {
+                                clearTimeout(timeout);
+                                timeout = null;
+                            }
+                            previous = now;
+                            result = func.apply(context, args);
+                            if (!timeout) context = args = null;
+                        } else if (!timeout && options && options.trailing !== false) {
+                            timeout = setTimeout(later, remaining);
+                        }
+                        return result;
+                    };
+                }
+
+
+            })();
+    </script>
+</body>
+
+</html>
