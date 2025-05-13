@@ -85,7 +85,6 @@ Two main types of visualizations were created to explore trends:
 
 ---
 
-## 📁 Repository Structure (Optional Suggestion)
 
 
  
