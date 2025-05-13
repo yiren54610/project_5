@@ -622,6 +622,73 @@
         <p>Interestingly, male characters displayed a greater range of height distributions while the range for female characters tended to be narrower. 
         </p>
     </div>
+
+    <style>
+        #methodology {
+          font-size: 0.9rem;
+          color: #555; /* lighter than body text but still readable */
+          line-height: 1.6;
+          margin-top: 2em;
+        }
+      
+        #methodology h2 {
+          font-size: 1.4rem;
+          color: #333; /* a little darker to keep the section header readable */
+          margin-bottom: 0.5em;
+        }
+      
+        #methodology h3 {
+          font-size: 1.1rem;
+          color: #444;
+          margin-top: 1.5em;
+        }
+      
+        #methodology p {
+          margin-bottom: 1em;
+          text-align: center;
+        }
+      
+        @media (max-width: 600px) {
+          #methodology {
+            font-size: 0.85rem;
+          }
+      
+          #methodology h2 {
+            font-size: 1.2rem;
+          }
+      
+          #methodology h3 {
+            font-size: 1rem;
+          }
+        }
+      </style>
+      
+      <div class="content">
+      <section id="methodology">
+        <h2>Methodology</h2>
+      
+        <p>
+          This project involved a scraping-intensive approach to analyze user preferences for anime and manga characters on MyAnimeList. Only characters who received more than <strong>1,000 votes</strong> were included in the dataset to ensure data quality and relevance.
+        </p>
+        <p>
+          To begin, I used <strong>Beautiful Soup</strong> to scrape essential details about each character from the main character listing page. This included the character’s name, a link to their profile, the number of votes they received, and the anime or manga title they are associated with.
+          I then employed <strong>Playwright</strong> to automate the process of visiting each character's individual page. This allowed me to extract additional information such as the character's full biographical description and the source link for their profile image.
+          The collected data was compiled and saved into a structured <code>.csv</code> file, which served as the foundation for further analysis.
+        </p>
+        <p>
+          Since gender was not explicitly stated on the MyAnimeList character pages, I developed a method to infer gender based on the character's biographical text. Using regular expressions, I extracted attributes such as age, birthday, nationality, height, occupation, and a short paragraph describing the character.
+        </p>
+        <p>
+          To infer gender, I created a keyword-based scoring system. This system scanned the biographical text for female-associated words (such as <em>she</em>, <em>her</em>, <em>woman</em>, <em>girl</em>, <em>female</em>, and <em>lady</em>) and male-associated words (such as <em>he</em>, <em>him</em>, <em>man</em>, <em>boy</em>, <em>male</em>, and <em>gentleman</em>). Each time a keyword was detected, a score was added to the corresponding gender category.
+        </p>
+        <p>
+          The character's gender was then inferred based on the higher of the two scores. This inferred gender was added as a new column titled <code>gender</code> in the final dataset.
+        </p>
+      </section>
+    </div>
+      
+      
+
     <div class="footer">
         <div class="content">
             <p>You can find the code for this <a href="https://github.com/yiren54610?tab=repositories">here</a>.
